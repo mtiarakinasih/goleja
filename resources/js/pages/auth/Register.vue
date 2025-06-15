@@ -24,7 +24,7 @@ const submit = () => {
 <template>
     <div class="grid h-screen grid-cols-4">
         <div class="col-span-3 h-screen">
-            <img src="/bg-login.png" alt="Login Background" class="h-full w-full object-cover" />
+            <img src="/images/bg-login.png" alt="Login Background" class="h-full w-full object-cover" />
         </div>
 
         <div class="col-span-1 flex h-screen items-center justify-center bg-white">
