@@ -8,8 +8,21 @@ Route::get('/', function () {
 })->name('home');
 
 Route::get('dashboard', function () {
-    return Inertia::render('Dashboard');
+    return redirect()->route('cari-kerja');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::get('/cari-kerja', function () {
+    return Inertia::render('CariKerja');
+})->middleware(['auth', 'verified'])->name('cari-kerja');
+
+Route::get('/artikel', function () {
+    return Inertia::render('Artikel');
+})->middleware(['auth', 'verified'])->name('artikel');
+
+Route::get('/perusahaan', function () {
+    return Inertia::render('Perusahaan');
+})->middleware(['auth', 'verified'])->name('perusahaan');
+
 
 require __DIR__.'/settings.php';
 require __DIR__.'/auth.php';

@@ -4,7 +4,7 @@ import TextLink from '@/components/TextLink.vue';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import AuthBase from '@/layouts/AuthLayout.vue';
-import { Head, useForm } from '@inertiajs/vue3';
+import { useForm } from '@inertiajs/vue3';
 import { LoaderCircle } from 'lucide-vue-next';
 
 const form = useForm({
@@ -23,19 +23,19 @@ const submit = () => {
 
 <template>
     <div class="grid h-screen grid-cols-4">
-        <!-- sebelah kiri gambar -->
         <div class="col-span-3 h-screen">
             <img src="/bg-login.png" alt="Login Background" class="h-full w-full object-cover" />
         </div>
 
-        <!-- sebelah kanan form -->
         <div class="col-span-1 flex h-screen items-center justify-center bg-white">
-            <div class="w-full max-w-lg px-10">
-                <AuthBase title="Sign Up" description="">
+            <div class="w-full max-w-lg bg-white px-10 dark:bg-white">
+                <AuthBase>
                     <Head title="Register" />
 
+                    <h1 class="text-center text-2xl font-bold text-black dark:text-black">Sign Up</h1>
+
                     <form @submit.prevent="submit" class="flex flex-col gap-6">
-                        <div class="grid gap-6">
+                        <div class="grid gap-4">
                             <div class="grid gap-2">
                                 <Input
                                     id="name"
@@ -45,21 +45,13 @@ const submit = () => {
                                     :tabindex="1"
                                     autocomplete="name"
                                     v-model="form.name"
-                                    placeholder="Full name"
+                                    placeholder="Nama lengkap"
                                 />
                                 <InputError :message="form.errors.name" />
                             </div>
 
                             <div class="grid gap-2">
-                                <Input
-                                    id="email"
-                                    type="email"
-                                    required
-                                    :tabindex="2"
-                                    autocomplete="email"
-                                    v-model="form.email"
-                                    placeholder="email@example.com"
-                                />
+                                <Input id="email" type="email" required :tabindex="2" autocomplete="email" v-model="form.email" placeholder="Email" />
                                 <InputError :message="form.errors.email" />
                             </div>
 
@@ -89,7 +81,12 @@ const submit = () => {
                                 <InputError :message="form.errors.password_confirmation" />
                             </div>
 
-                            <Button type="submit" class="mt-2 w-full" tabindex="5" :disabled="form.processing">
+                            <Button
+                                type="submit"
+                                class="mt-2 w-full bg-black text-white hover:bg-gray-900 dark:bg-black dark:text-white dark:hover:bg-gray-900"
+                                tabindex="5"
+                                :disabled="form.processing"
+                            >
                                 <LoaderCircle v-if="form.processing" class="h-4 w-4 animate-spin" />
                                 Sign Up
                             </Button>
@@ -97,7 +94,7 @@ const submit = () => {
 
                         <div class="text-center text-sm text-muted-foreground">
                             Already have an account?
-                            <TextLink :href="route('login')" class="underline underline-offset-4" :tabindex="6">Log in</TextLink>
+                            <TextLink :href="route('login')" :tabindex="5">Log in</TextLink>
                         </div>
                     </form>
                 </AuthBase>
