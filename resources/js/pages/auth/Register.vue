@@ -6,6 +6,9 @@ import { Input } from '@/components/ui/input';
 import AuthBase from '@/layouts/AuthLayout.vue';
 import { useForm } from '@inertiajs/vue3';
 import { LoaderCircle } from 'lucide-vue-next';
+import { ref } from 'vue';
+
+const isCompany = ref(true); // Switch tab state
 
 const form = useForm({
     name: '',
@@ -32,7 +35,27 @@ const submit = () => {
                 <AuthBase>
                     <Head title="Register" />
 
-                    <h1 class="text-center text-2xl font-bold text-black dark:text-black">Sign Up</h1>
+                    <h1 class="mb-4 text-center text-2xl font-bold text-black dark:text-black">Sign Up</h1>
+
+                    <!-- Switch Tab -->
+                    <div class="flex w-full overflow-hidden rounded-lg border">
+                        <button
+                            class="w-1/2 px-2 py-1.5 text-center text-sm font-medium transition-colors"
+                            :class="isCompany ? 'bg-black text-white' : 'bg-white text-gray-700'"
+                            @click="isCompany = true"
+                            type="button"
+                        >
+                            Perusahaan
+                        </button>
+                        <button
+                            class="w-1/2 px-2 py-1.5 text-center text-sm font-medium transition-colors"
+                            :class="!isCompany ? 'bg-black text-white' : 'bg-white text-gray-700'"
+                            @click="isCompany = false"
+                            type="button"
+                        >
+                            Pengguna
+                        </button>
+                    </div>
 
                     <form @submit.prevent="submit" class="flex flex-col gap-6">
                         <div class="grid gap-4">
