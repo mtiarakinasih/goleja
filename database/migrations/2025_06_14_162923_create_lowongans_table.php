@@ -15,8 +15,7 @@ return new class extends Migration
             $table->foreignId('kategori_bidang_id')->constrained('kategori_bidangs')->onDelete('cascade');
             $table->foreignId('kategori_waktu_id')->constrained('kategori_waktus')->onDelete('cascade');
             $table->integer('gaji');
-            $table->string('lokasi');
-            $table->string('rentang_waktu');
+            $table->string('lokasi', 255);
             $table->longText('deskripsi');
             $table->string('foto')->nullable();
             $table->enum('status', ['pending','approved','rejected'])->default('pending');
