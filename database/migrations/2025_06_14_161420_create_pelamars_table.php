@@ -12,10 +12,10 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->string('nama_lengkap', 255);
-            $table->text('alamat');
-            $table->date('tanggal_lahir');
-            $table->string('no_telepon', 20);
-            $table->string('email', 255)->unique();
+            $table->text('alamat')->nullable();
+            $table->date('tanggal_lahir')->nullable();
+            $table->string('no_telepon', 20)->nullable();
+            $table->string('email', 255);
             $table->string('foto_profil', 255)->nullable();
             $table->string('pendidikan', 255);
             $table->string('cv_file', 255)->nullable();

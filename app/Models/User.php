@@ -47,4 +47,13 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function pelamar() {
+        return $this->hasOne(Pelamar::class);
+    }
+
+    public function perusahaan() {
+        return $this->hasOne(Perusahaan::class);
+    }
+
 }

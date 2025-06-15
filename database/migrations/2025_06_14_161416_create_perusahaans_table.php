@@ -12,9 +12,9 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->string('nama_perusahaan', 255);
-            $table->text('alamat');
-            $table->string('no_telepon', 20);
-            $table->string('email', 255)->unique();
+            $table->text('alamat')->nullable();;
+            $table->string('no_telepon', 20)->nullable();;
+            $table->string('email', 255);
             $table->string('website', 255)->nullable();
             $table->string('logo', 255)->nullable();
             $table->timestamps();
