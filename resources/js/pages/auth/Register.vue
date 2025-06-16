@@ -6,7 +6,7 @@ import { Input } from '@/components/ui/input';
 import AuthBase from '@/layouts/AuthLayout.vue';
 import { useForm } from '@inertiajs/vue3';
 import { LoaderCircle } from 'lucide-vue-next';
-import { ref } from 'vue';
+import { ref, watch } from 'vue';
 
 const isCompany = ref(true); // Switch tab state
 
@@ -15,13 +15,17 @@ const form = useForm({
     email: '',
     password: '',
     password_confirmation: '',
+    role: 'pelamar', // Default role
 });
 
 const submit = () => {
+    form.role = isCompany.value ? 'perusahaan' : 'pelamar'; // Pastikan nilai role sesuai toggle
+
     form.post(route('register'), {
         onFinish: () => form.reset('password', 'password_confirmation'),
     });
 };
+
 </script>
 
 <template>

@@ -13,6 +13,7 @@ class Pelamar extends Model
         'user_id',
         'nama_lengkap',
         'alamat',
+        'email',
         'tanggal_lahir',
         'no_telepon',
         'foto_profil',

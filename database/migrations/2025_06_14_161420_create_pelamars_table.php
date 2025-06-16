@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('no_telepon', 20)->nullable();
             $table->string('email', 255);
             $table->string('foto_profil', 255)->nullable();
-            $table->string('pendidikan', 255);
+            $table->string('pendidikan', 255)->nullable();
             $table->string('cv_file', 255)->nullable();
             $table->timestamps();
         });

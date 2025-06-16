@@ -13,6 +13,7 @@ class Perusahaan extends Model
         'user_id',
         'nama_perusahaan',
         'alamat',
+        'email',
         'no_telepon',
         'website',
         'logo',
