@@ -53,7 +53,7 @@ const submit = () => {
                             @click="isCompany = false"
                             type="button"
                         >
-                            Pengguna
+                            Pelamar
                         </button>
                     </div>
 
