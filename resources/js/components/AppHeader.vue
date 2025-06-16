@@ -11,8 +11,8 @@ import UserMenuContent from '@/components/UserMenuContent.vue';
 import { getInitials } from '@/composables/useInitials';
 import type { BreadcrumbItem, NavItem } from '@/types';
 import { Link, usePage } from '@inertiajs/vue3';
-import { Bell, Menu } from 'lucide-vue-next'; // hanya Menu dan Bell
-import { computed } from 'vue';
+import { Bell, Menu } from 'lucide-vue-next';
+import { computed, onBeforeUnmount, onMounted, ref } from 'vue';
 
 interface Props {
     breadcrumbs?: BreadcrumbItem[];
@@ -26,25 +26,28 @@ const page = usePage();
 const auth = computed(() => page.props.auth);
 
 const isCurrentRoute = computed(() => (url: string) => page.url === url);
-
 const activeItemStyles = computed(
     () => (url: string) => (isCurrentRoute.value(url) ? 'text-neutral-900 dark:bg-neutral-800 dark:text-neutral-100' : ''),
 );
 
 const mainNavItems: NavItem[] = [
-    {
-        title: 'Cari Kerja',
-        href: '/cari-kerja',
-    },
-    {
-        title: 'Artikel',
-        href: '/artikel',
-    },
-    {
-        title: 'Perusahaan',
-        href: '/perusahaan',
-    },
+    { title: 'Cari Kerja', href: '/cari-kerja' },
+    { title: 'Artikel', href: '/artikel' },
+    { title: 'Perusahaan', href: '/perusahaan' },
 ];
+
+// Notifikasi
+const showNotif = ref(false);
+const toggleNotif = () => (showNotif.value = !showNotif.value);
+const closeNotif = (e: MouseEvent) => {
+    const target = e.target as HTMLElement;
+    if (!target.closest('#notif-button') && !target.closest('#notif-dropdown')) {
+        showNotif.value = false;
+    }
+};
+
+onMounted(() => document.addEventListener('click', closeNotif));
+onBeforeUnmount(() => document.removeEventListener('click', closeNotif));
 </script>
 
 <template>
@@ -73,7 +76,6 @@ const mainNavItems: NavItem[] = [
                                         class="flex items-center gap-x-3 rounded-lg px-3 py-2 text-sm font-medium hover:bg-accent"
                                         :class="activeItemStyles(item.href)"
                                     >
-                                        <component v-if="item.icon" :is="item.icon" class="h-5 w-5" />
                                         {{ item.title }}
                                     </Link>
                                 </nav>
@@ -95,7 +97,6 @@ const mainNavItems: NavItem[] = [
                                     :class="[navigationMenuTriggerStyle(), activeItemStyles(item.href), 'h-9 cursor-pointer px-3']"
                                     :href="item.href"
                                 >
-                                    <component v-if="item.icon" :is="item.icon" class="mr-2 h-4 w-4" />
                                     {{ item.title }}
                                 </Link>
                                 <div
@@ -107,20 +108,46 @@ const mainNavItems: NavItem[] = [
                     </NavigationMenu>
                 </div>
 
-                <!-- Right Section: Bell, Username, Avatar -->
+                <!-- Right side: Notif, User -->
                 <div class="ml-auto flex items-center space-x-4">
-                    <!-- Bell Icon -->
-                    <Button variant="ghost" size="icon" class="relative h-10 w-10">
-                        <Bell class="h-6 w-6 text-neutral-700 dark:text-neutral-100" />
-                    </Button>
+                    <!-- Notifikasi -->
+                    <div class="relative">
+                        <button
+                            id="notif-button"
+                            @click="toggleNotif"
+                            class="relative flex h-10 w-10 items-center justify-center rounded-full transition hover:bg-gray-100"
+                        >
+                            <Bell class="w-5text-neutral-800 h-4 w-4" :stroke-width="1.7" />
+                            <span class="absolute top-1 right-1 h-2 w-2 rounded-full bg-red-500 ring-2 ring-white" />
+                        </button>
 
-                    <!-- Username -->
+                        <!-- Dropdown -->
+                        <div
+                            v-if="showNotif"
+                            id="notif-dropdown"
+                            class="absolute right-0 z-50 mt-2 max-w-xs rounded-md border border-gray-200 bg-white shadow-md"
+                        >
+                            <div class="p-2 text-[13px] whitespace-nowrap text-gray-700">
+                                <a href="#" class="block rounded-md px-3 py-2 transition hover:bg-[#f5f7ff] hover:text-[#3f4fc1]">
+                                    Lowongan baru tersedia
+                                </a>
+                                <a href="#" class="block rounded-md px-3 py-2 transition hover:bg-[#f5f7ff] hover:text-[#3f4fc1]">
+                                    Profil kamu dilihat oleh HRD
+                                </a>
+                                <a href="#" class="block rounded-md px-3 py-2 transition hover:bg-[#f5f7ff] hover:text-[#3f4fc1]">
+                                    Artikel baru: Cara Lulus Interview
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Username & Role -->
                     <div class="text-right leading-tight">
                         <div class="text-sm font-medium text-black dark:text-white">{{ auth.user?.name }}</div>
                         <div class="text-xs text-neutral-500">user</div>
                     </div>
 
-                    <!-- Avatar + Dropdown -->
+                    <!-- Avatar -->
                     <DropdownMenu>
                         <DropdownMenuTrigger :as-child="true">
                             <Button
@@ -144,6 +171,7 @@ const mainNavItems: NavItem[] = [
             </div>
         </div>
 
+        <!-- Breadcrumb -->
         <div v-if="props.breadcrumbs.length > 1" class="flex w-full border-b border-sidebar-border/70">
             <div class="mx-auto flex h-12 w-full items-center justify-start px-4 text-neutral-500 md:max-w-7xl">
                 <Breadcrumbs :breadcrumbs="breadcrumbs" />

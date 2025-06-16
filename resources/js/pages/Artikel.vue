@@ -2,6 +2,7 @@
 import AppLayout from '@/layouts/AppLayout.vue';
 import { type BreadcrumbItem } from '@/types';
 import { Head } from '@inertiajs/vue3';
+import { Search } from 'lucide-vue-next';
 
 const breadcrumbs: BreadcrumbItem[] = [
     {
@@ -28,13 +29,15 @@ const breadcrumbs: BreadcrumbItem[] = [
                                 kamu jadikan sebagai peluang untuk bekerja.
                             </p>
                         </div>
-                        <button class="mt-2 w-fit rounded-md bg-[#91A3FF] px-4 py-1.5 text-xs font-semibold text-white transition hover:bg-[#6d84ff]">
+                        <button
+                            class="mt-2 w-fit rounded-md bg-[#91A3FF] px-4 py-2 text-xs font-semibold text-white transition hover:border hover:border-[#91A3FF] hover:bg-white hover:text-[#91A3FF] hover:shadow-md"
+                        >
                             Lihat Detail
                         </button>
                     </div>
                 </div>
 
-                <!-- Loop -->
+                <!-- Loop Artikel Lain -->
                 <div class="flex flex-col items-start gap-4 border-b pb-6 md:flex-row">
                     <img src="/images/artikel-1.png" alt="Artikel" class="h-32 w-full rounded-md object-cover md:w-48" />
                     <div class="flex flex-col justify-between text-sm">
@@ -46,7 +49,9 @@ const breadcrumbs: BreadcrumbItem[] = [
                                 kamu jadikan sebagai peluang untuk bekerja.
                             </p>
                         </div>
-                        <button class="mt-2 w-fit rounded-md bg-[#91A3FF] px-4 py-1.5 text-xs font-semibold text-white transition hover:bg-[#6d84ff]">
+                        <button
+                            class="mt-2 w-fit rounded-md bg-[#91A3FF] px-4 py-2 text-xs font-semibold text-white transition hover:border hover:border-[#91A3FF] hover:bg-white hover:text-[#91A3FF] hover:shadow-md"
+                        >
                             Lihat Detail
                         </button>
                     </div>
@@ -63,13 +68,16 @@ const breadcrumbs: BreadcrumbItem[] = [
                                 kamu jadikan sebagai peluang untuk bekerja.
                             </p>
                         </div>
-                        <button class="mt-2 w-fit rounded-md bg-[#91A3FF] px-4 py-1.5 text-xs font-semibold text-white transition hover:bg-[#6d84ff]">
+                        <button
+                            class="mt-2 w-fit rounded-md bg-[#91A3FF] px-4 py-2 text-xs font-semibold text-white transition hover:border hover:border-[#91A3FF] hover:bg-white hover:text-[#91A3FF] hover:shadow-md"
+                        >
                             Lihat Detail
                         </button>
                     </div>
                 </div>
             </div>
 
+            <!-- SIDEBAR -->
             <div class="w-full space-y-4 md:w-64">
                 <div>
                     <label for="search" class="sr-only">Cari artikel</label>
@@ -81,18 +89,34 @@ const breadcrumbs: BreadcrumbItem[] = [
                             class="w-full rounded-md border border-gray-300 px-3 py-2 pr-10 text-sm focus:border-[#91A3FF] focus:ring focus:ring-[#91A3FF]/40"
                         />
                         <div class="absolute top-1/2 right-2 -translate-y-1/2 text-gray-400">
-                            <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                <path
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    d="M21 21l-4.35-4.35M16.65 16.65A7.5 7.5 0 1116.65 2a7.5 7.5 0 010 15z"
-                                />
-                            </svg>
+                            <Search class="h-4 w-4" />
                         </div>
                     </div>
                 </div>
 
-                <h2 class="text-base font-semibold text-gray-800">Artikel</h2>
+                <!-- untuk hasil pencarian -->
+                <!-- jika tidak ada pencarian maka akan kosong -->
+                <div class="space-y-2">
+                    <h2 class="text-sm font-medium text-gray-600">Hasil Pencarian</h2>
+
+                    <div class="space-y-3">
+                        <div
+                            class="cursor-pointer rounded-lg border border-gray-200 bg-white p-4 text-sm shadow-sm transition hover:border-[#91A3FF] hover:bg-[#91A3FF]/10 hover:shadow-md"
+                        >
+                            Pekerjaan yang Menjanjikan untuk Lulusan SMA
+                        </div>
+                        <div
+                            class="cursor-pointer rounded-lg border border-gray-200 bg-white p-4 text-sm shadow-sm transition hover:border-[#91A3FF] hover:bg-[#91A3FF]/10 hover:shadow-md"
+                        >
+                            Tips Melamar Kerja Tanpa Pengalaman
+                        </div>
+                        <div
+                            class="cursor-pointer rounded-lg border border-gray-200 bg-white p-4 text-sm shadow-sm transition hover:border-[#91A3FF] hover:bg-[#91A3FF]/10 hover:shadow-md"
+                        >
+                            Cara Membuat CV Menarik untuk Fresh Graduate
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </AppLayout>

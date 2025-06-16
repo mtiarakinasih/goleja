@@ -23,6 +23,9 @@ Route::get('/perusahaan', function () {
     return Inertia::render('Perusahaan');
 })->middleware(['auth', 'verified'])->name('perusahaan');
 
+Route::get('/artikel/detail', function () {
+    return Inertia::render('DetailArtikel');
+})->middleware(['auth', 'verified'])->name('detail-artikel');
 
 require __DIR__.'/settings.php';
 require __DIR__.'/auth.php';

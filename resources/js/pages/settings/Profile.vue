@@ -39,6 +39,7 @@ function triggerUpload() {
             <div class="mt-6 mb-6 flex w-1/4 flex-col justify-between rounded-xl bg-gray-50 p-6 shadow">
                 <div class="flex flex-col items-center">
                     <div class="relative mb-4">
+                        <!-- user yang tidak punya foto ptofile maka akan pake default ini -->
                         <img src="/profile/default_profile.jpeg" class="h-32 w-32 rounded-full border-[6px] border-white object-cover shadow" />
 
                         <button
