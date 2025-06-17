@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('foto_profil', 255)->nullable();
             $table->string('pendidikan', 255)->nullable();
             $table->string('cv_file', 255)->nullable();
+            $table->tinyInteger('rating')->unsigned()->nullable()->comment('Nilai 1 sampai 5');
             $table->timestamps();
         });
     }

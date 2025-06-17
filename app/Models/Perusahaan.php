@@ -17,6 +17,7 @@ class Perusahaan extends Model
         'no_telepon',
         'website',
         'logo',
+        'rating',
     ];
 
     public function user()

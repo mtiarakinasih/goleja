@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('email', 255);
             $table->string('website', 255)->nullable();
             $table->string('logo', 255)->nullable();
+            $table->tinyInteger('rating')->unsigned()->nullable()->comment('Nilai 1 sampai 5');
             $table->timestamps();
         });
     }

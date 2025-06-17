@@ -19,6 +19,7 @@ class Pelamar extends Model
         'foto_profil',
         'pendidikan',
         'cv_file',
+        'rating',
     ];
 
     public function user()
