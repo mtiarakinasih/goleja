@@ -10,6 +10,8 @@ import { computed, ref } from 'vue';
 const activeTab = ref<'akun' | 'status' | 'riwayat'>('akun');
 
 const showDetail = ref(false);
+
+// nanti ganti di controller atau apa
 const selectedStatus = ref<any>(null);
 
 const progressStep = computed(() => {
@@ -150,96 +152,116 @@ function triggerUpload() {
 
                 <!-- bagian status -->
                 <div v-else-if="activeTab === 'status'" class="space-y-4 text-sm">
-                    <!-- Terkirim -->
-                    <div class="relative rounded bg-gray-100 p-4 shadow-sm">
-                        <p class="font-semibold text-[#102C57]">PT Botika Teknologi Indonesia</p>
-                        <p>Posisi: Manajer</p>
-                        <p class="mt-1 text-sm">
-                            Status Pengajuan:
-                            <span class="rounded px-2 py-1 text-black" style="background: linear-gradient(to right, #d9d9d9, #bfdbfe)">
-                                Terkirim
-                            </span>
-                        </p>
-                        <button
-                            @click="
-                                selectedStatus = { company: 'PT Botika Teknologi Indonesia', position: 'Manajer', status: 'Terkirim' };
-                                showDetail = true;
-                            "
-                            class="absolute top-4 right-4 text-blue-800 hover:text-blue-600"
-                        >
-                            <Eye class="h-5 w-5" />
-                        </button>
-                    </div>
+                    <div class="space-y-4">
+                        <div class="relative w-1/2 rounded bg-gray-100 p-4">
+                            <p class="font-semibold text-[#102C57]">PT Botika Teknologi Indonesia</p>
+                            <p>Posisi: Manajer</p>
+                            <p class="mt-1 text-sm">
+                                Status Pengajuan:
+                                <span class="rounded px-2 py-1 text-black" style="background: linear-gradient(to right, #d9d9d9, #bfdbfe)">
+                                    Terkirim
+                                </span>
+                            </p>
+                            <button
+                                @click="
+                                    selectedStatus = {
+                                        company: 'PT Botika Teknologi Indonesia',
+                                        position: 'Manajer',
+                                        status: 'Terkirim',
+                                    };
+                                    showDetail = true;
+                                "
+                                class="absolute top-4 right-4 rounded bg-[#6F9EE7] p-1.5 text-white hover:bg-[#4f7bcc]"
+                            >
+                                <Eye class="h-4 w-4" />
+                            </button>
+                        </div>
 
-                    <!-- Sedang dicek -->
-                    <div class="relative rounded bg-gray-100 p-4 shadow-sm">
-                        <p class="font-semibold text-[#102C57]">PT Aksa Digital Group</p>
-                        <p>Posisi: Administrator</p>
-                        <p class="mt-1 text-sm">
-                            Status Pengajuan:
-                            <span class="rounded px-2 py-1 text-black" style="background: linear-gradient(to right, #d9d9d9, #fef08a)">
-                                Sedang dicek
-                            </span>
-                        </p>
-                        <button
-                            @click="
-                                selectedStatus = { company: 'PT Aksa Digital Group', position: 'Administrator', status: 'Sedang dicek' };
-                                showDetail = true;
-                            "
-                            class="absolute top-4 right-4 text-blue-800 hover:text-blue-600"
-                        >
-                            <Eye class="h-5 w-5" />
-                        </button>
-                    </div>
+                        <div class="relative w-1/2 rounded bg-gray-100 p-4">
+                            <p class="font-semibold text-[#102C57]">PT Aksa Digital Group</p>
+                            <p>Posisi: Administrator</p>
+                            <p class="mt-1 text-sm">
+                                Status Pengajuan:
+                                <span class="rounded px-2 py-1 text-black" style="background: linear-gradient(to right, #d9d9d9, #fef08a)">
+                                    Sedang dicek
+                                </span>
+                            </p>
+                            <button
+                                @click="
+                                    selectedStatus = {
+                                        company: 'PT Aksa Digital Group',
+                                        position: 'Administrator',
+                                        status: 'Sedang dicek',
+                                    };
+                                    showDetail = true;
+                                "
+                                class="absolute top-4 right-4 rounded bg-[#6F9EE7] p-1.5 text-white hover:bg-[#4f7bcc]"
+                            >
+                                <Eye class="h-4 w-4" />
+                            </button>
+                        </div>
 
-                    <!-- Dipanggil Interview -->
-                    <div class="relative rounded bg-gray-100 p-4 shadow-sm">
-                        <p class="font-semibold text-[#102C57]">PT Aksa Digital Group</p>
-                        <p>Posisi: Administrator</p>
-                        <p class="mt-1 text-sm">
-                            Status Pengajuan:
-                            <span class="rounded px-2 py-1 text-black" style="background: linear-gradient(to right, #d9d9d9, #bbf7d0)">
-                                Dipanggil Interview
-                            </span>
-                        </p>
-                        <p class="mt-2 text-sm text-gray-500">[Link Meeting/lampiran dokumen undangan interview]</p>
-                        <button
-                            @click="
-                                selectedStatus = { company: 'PT Aksa Digital Group', position: 'Administrator', status: 'CV kamu diterima!' };
-                                showDetail = true;
-                            "
-                            class="absolute top-4 right-4 text-blue-800 hover:text-blue-600"
-                        >
-                            <Eye class="h-5 w-5" />
-                        </button>
+                        <div class="relative mt-3 w-1/2 rounded bg-gray-100 p-4">
+                            <p class="font-semibold text-[#102C57]">PT Aksa Digital Group</p>
+                            <p>Posisi: Administrator</p>
+                            <p class="mt-1 text-sm">
+                                Status Pengajuan:
+                                <span class="rounded px-2 py-1 text-black" style="background: linear-gradient(to right, #d9d9d9, #bbf7d0)">
+                                    Dipanggil Interview
+                                </span>
+                            </p>
+
+                            <!-- hanya ada ketika ada catatan -->
+                            <div class="mt-4 rounded" style="background-color: #d9d9d9; border-radius: 5px">
+                                <p class="p-2 text-xs text-black">[Link Meeting/lampiran dokumen undangan interview]</p>
+                            </div>
+
+                            <button
+                                @click="
+                                    selectedStatus = {
+                                        company: 'PT Aksa Digital Group',
+                                        position: 'Administrator',
+                                        status: 'CV kamu diterima!',
+                                    };
+                                    showDetail = true;
+                                "
+                                class="absolute top-4 right-4 rounded bg-[#6F9EE7] p-1.5 text-white hover:bg-[#4f7bcc]"
+                            >
+                                <Eye class="h-4 w-4" />
+                            </button>
+                        </div>
                     </div>
                 </div>
 
                 <!-- bagian history -->
                 <div v-else-if="activeTab === 'riwayat'" class="space-y-4 text-sm">
-                    <!-- Riwayat 1 -->
-                    <div class="rounded bg-gray-100 p-4 shadow-sm">
-                        <p class="font-semibold text-[#102C57]">PT Botika Teknologi Indonesia</p>
-                        <p>Posisi: Manajer</p>
-                        <p class="mt-1 text-sm">
-                            Status Pengajuan:
-                            <span class="rounded px-2 py-1 text-black" style="background: linear-gradient(to right, #d9d9d9, #bbf7d0)">
-                                Terkirim
-                            </span>
-                        </p>
-                    </div>
+                    <div class="inline-block w-1/2 space-y-4">
+                        <div class="rounded bg-gray-100 p-4">
+                            <p class="font-semibold text-[#102C57]">PT Botika Teknologi Indonesia</p>
+                            <p>Posisi: Manajer</p>
+                            <p class="mt-1 text-sm">
+                                Status Pengajuan:
+                                <span class="rounded px-2 py-1 text-black" style="background: linear-gradient(to right, #d9d9d9, #bbf7d0)">
+                                    Terkirim
+                                </span>
+                            </p>
+                        </div>
 
-                    <!-- Riwayat 2 -->
-                    <div class="rounded bg-gray-100 p-4 shadow-sm">
-                        <p class="font-semibold text-[#102C57]">PT Aksa Digital Group</p>
-                        <p>Posisi: Administrator</p>
-                        <p class="mt-1 text-sm">
-                            Status Pengajuan:
-                            <span class="rounded px-2 py-1 text-black" style="background: linear-gradient(to right, #d9d9d9, #fecaca)">
-                                Ditolak
-                            </span>
-                        </p>
-                        <p class="mt-2 text-sm text-gray-500">Catatan dari HR jika ada</p>
+                        <div class="rounded bg-gray-100 p-4">
+                            <p class="font-semibold text-[#102C57]">PT Aksa Digital Group</p>
+                            <p>Posisi: Administrator</p>
+                            <p class="mt-1 text-sm">
+                                Status Pengajuan:
+                                <span class="rounded px-2 py-1 text-black" style="background: linear-gradient(to right, #d9d9d9, #fecaca)">
+                                    Ditolak
+                                </span>
+                            </p>
+
+                            <!-- hanya ada ketika ada catatan -->
+                            <div class="mt-4 rounded" style="background-color: #d9d9d9; border-radius: 5px">
+                                <p class="p-2 text-xs text-black">Catatan dari HR jika ada</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
