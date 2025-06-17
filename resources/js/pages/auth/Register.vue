@@ -39,13 +39,13 @@ const submit = () => {
                 <AuthBase>
                     <Head title="Register" />
 
-                    <h1 class="mb-4 text-center text-2xl font-bold text-black dark:text-black">Sign Up</h1>
+                    <h1 class="mb-4 text-center text-2xl font-bold text-[#102C57]">Sign Up</h1>
 
                     <!-- Switch Tab -->
-                    <div class="flex w-full overflow-hidden rounded-lg border">
+                    <div class="flex w-full overflow-hidden rounded-lg border border-[#102C57]">
                         <button
                             class="w-1/2 px-2 py-1.5 text-center text-sm font-medium transition-colors"
-                            :class="isCompany ? 'bg-black text-white' : 'bg-white text-gray-700'"
+                            :class="isCompany ? 'bg-[#102C57] text-white' : 'bg-white text-[#102C57]'"
                             @click="isCompany = true"
                             type="button"
                         >
@@ -53,7 +53,7 @@ const submit = () => {
                         </button>
                         <button
                             class="w-1/2 px-2 py-1.5 text-center text-sm font-medium transition-colors"
-                            :class="!isCompany ? 'bg-black text-white' : 'bg-white text-gray-700'"
+                            :class="!isCompany ? 'bg-[#102C57] text-white' : 'bg-white text-[#102C57]'"
                             @click="isCompany = false"
                             type="button"
                         >
@@ -62,7 +62,7 @@ const submit = () => {
                     </div>
 
                     <form @submit.prevent="submit" class="flex flex-col gap-6">
-                        <div class="grid gap-4">
+                        <div class="grid gap-3">
                             <div class="grid gap-2">
                                 <Input
                                     id="name"
@@ -110,7 +110,7 @@ const submit = () => {
 
                             <Button
                                 type="submit"
-                                class="mt-2 w-full bg-black text-white hover:bg-gray-900 dark:bg-black dark:text-white dark:hover:bg-gray-900"
+                                class="mt-5 w-full bg-[#6F9EE7] text-white hover:bg-[#5f8ed4]"
                                 tabindex="5"
                                 :disabled="form.processing"
                             >
@@ -121,7 +121,7 @@ const submit = () => {
 
                         <div class="text-center text-sm text-muted-foreground">
                             Already have an account?
-                            <TextLink :href="route('login')" :tabindex="5">Log in</TextLink>
+                            <TextLink :href="route('login')" :tabindex="5" class="text-[#102C57]">Log in</TextLink>
                         </div>
                     </form>
                 </AuthBase>

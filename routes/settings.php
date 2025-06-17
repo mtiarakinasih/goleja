@@ -22,4 +22,8 @@ Route::middleware('auth')->group(function () {
     Route::get('settings/rating', function () {
         return Inertia::render('settings/RatingUser');
     })->name('rating');
+
+    Route::get('settings/artikel', function () {
+        return Inertia::render('settings/KelolaArtikel');
+    })->name('kelola-artikel');
 });

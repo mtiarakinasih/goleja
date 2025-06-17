@@ -23,7 +23,7 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits)
     :class="
       cn(
         'peer size-4 shrink-0 rounded-[4px] border shadow-xs outline-none transition-shadow',
-        'border-neutral-400 data-[state=checked]:bg-black data-[state=checked]:text-white data-[state=checked]:border-neutral-400',
+        'border-neutral-400 data-[state=checked]:bg-[#102C57] data-[state=checked]:text-white data-[state=checked]:border-[#6F9EE7]',
         'focus-visible:ring-[3px] focus-visible:ring-ring/50 focus-visible:border-ring',
         'aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40',
         'disabled:cursor-not-allowed disabled:opacity-50',
@@ -41,3 +41,4 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits)
     </CheckboxIndicator>
   </CheckboxRoot>
 </template>
+

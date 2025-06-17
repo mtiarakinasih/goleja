@@ -82,22 +82,70 @@ function triggerUpload() {
                 </div>
 
                 <!-- bagian setting akun -->
-                <div v-if="activeTab === 'akun'" class="mt-4 grid grid-cols-2 gap-4 text-sm">
-                    <div class="space-y-2"><Label>Username</Label><Input placeholder="Username" /></div>
-                    <div class="space-y-2"><Label>Nama Lengkap</Label><Input placeholder="Nama Lengkap" /></div>
-                    <div class="space-y-2"><Label>Password</Label><Input type="password" placeholder="Password" /></div>
-                    <div class="space-y-2"><Label>Re-type Password</Label><Input type="password" placeholder="Re-type Password" /></div>
-                    <div class="space-y-2"><Label>No Telepon</Label><Input placeholder="No Telepon" /></div>
-                    <div class="space-y-2"><Label>Email</Label><Input placeholder="Email" /></div>
-                    <div class="col-span-2 space-y-2"><Label>LinkedIn</Label><Input placeholder="linkedin.com/username" /></div>
-                    <div class="col-span-2 space-y-2">
-                        <Label>Bio</Label
-                        ><textarea
-                            rows="4"
-                            class="flex w-full min-w-0 rounded-md border border-gray-300 bg-white px-3 py-1 text-base text-black shadow-none transition-[color,box-shadow] outline-none placeholder:text-gray-600 focus-visible:border-black focus-visible:ring-[3px] focus-visible:ring-[rgba(0,0,0,0.2)] disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm"
+                <div v-if="activeTab === 'akun'" class="mt-6 grid grid-cols-2 gap-4 text-sm">
+                    <div class="space-y-2">
+                        <Label>Username</Label>
+                        <Input
+                            placeholder="Username"
+                            class="!focus:bg-white !focus:ring-2 !focus:ring-[#6F9EE7] !focus:border-[#6F9EE7] !bg-[#F2F2F2]"
                         />
                     </div>
-                    <div class="col-span-2"><Button>Update</Button></div>
+                    <div class="space-y-2">
+                        <Label>Nama Lengkap</Label>
+                        <Input
+                            placeholder="Nama Lengkap"
+                            class="!focus:bg-white !focus:ring-2 !focus:ring-[#6F9EE7] !focus:border-[#6F9EE7] !bg-[#F2F2F2]"
+                        />
+                    </div>
+                    <div class="space-y-2">
+                        <Label>Password</Label>
+                        <Input
+                            type="password"
+                            placeholder="Password"
+                            class="!focus:bg-white !focus:ring-2 !focus:ring-[#6F9EE7] !focus:border-[#6F9EE7] !bg-[#F2F2F2]"
+                        />
+                    </div>
+                    <div class="space-y-2">
+                        <Label>Re-type Password</Label>
+                        <Input
+                            type="password"
+                            placeholder="Re-type Password"
+                            class="!focus:bg-white !focus:ring-2 !focus:ring-[#6F9EE7] !focus:border-[#6F9EE7] !bg-[#F2F2F2]"
+                        />
+                    </div>
+                    <div class="space-y-2">
+                        <Label>No Telepon</Label>
+                        <Input
+                            placeholder="No Telepon"
+                            class="!focus:bg-white !focus:ring-2 !focus:ring-[#6F9EE7] !focus:border-[#6F9EE7] !bg-[#F2F2F2]"
+                        />
+                    </div>
+                    <div class="space-y-2">
+                        <Label>Email</Label>
+                        <Input
+                            placeholder="Email"
+                            class="!focus:bg-white !focus:ring-2 !focus:ring-[#6F9EE7] !focus:border-[#6F9EE7] !bg-[#F2F2F2]"
+                        />
+                    </div>
+                    <div class="col-span-2 space-y-2">
+                        <Label>LinkedIn</Label>
+                        <Input
+                            placeholder="linkedin.com/username"
+                            class="!focus:bg-white !focus:ring-2 !focus:ring-[#6F9EE7] !focus:border-[#6F9EE7] !bg-[#F2F2F2]"
+                        />
+                    </div>
+                    <div class="col-span-2 space-y-2">
+                        <Label>Bio</Label>
+                        <textarea
+                            rows="4"
+                            placeholder="Tulis bio kamu di sini"
+                            class="w-full rounded-md border border-gray-300 !bg-[#F2F2F2] px-3 py-2 text-base text-black transition-all outline-none placeholder:text-gray-600 hover:border-gray-400 hover:shadow-sm focus:bg-white focus-visible:border-[#6F9EE7] focus-visible:ring-2 focus-visible:ring-[rgba(111,158,231,0.5)] disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm"
+                        ></textarea>
+                    </div>
+
+                    <div class="col-span-2">
+                        <Button class="bg-[#6F9EE7] text-white hover:bg-[#5f8ed4]">Update</Button>
+                    </div>
                 </div>
 
                 <!-- bagian status -->

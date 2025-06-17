@@ -38,7 +38,7 @@ const submit = () => {
                 <AuthBase>
                     <Head title="Log in" />
 
-                    <h1 class="text-center text-2xl font-bold text-black dark:text-black">Log in</h1>
+                    <h1 class="text-center text-2xl font-bold text-[#102C57]">Log in</h1>
 
                     <div v-if="status" class="mb-4 text-center text-sm font-medium text-green-600">
                         {{ status }}
@@ -76,16 +76,11 @@ const submit = () => {
                             <div class="flex items-center justify-between">
                                 <Label for="remember" class="flex items-center space-x-3">
                                     <Checkbox id="remember" v-model="form.remember" :tabindex="3" />
-                                    <span class="font-normal text-black">Remember me</span>
+                                    <span class="font-normal text-[#102C57]">Remember me</span>
                                 </Label>
                             </div>
 
-                            <Button
-                                type="submit"
-                                class="mt-2 w-full bg-black text-white hover:bg-gray-900 dark:bg-black dark:text-white dark:hover:bg-gray-900"
-                                tabindex="5"
-                                :disabled="form.processing"
-                            >
+                            <Button type="submit" class="bg-[#6F9EE7] text-white hover:bg-[#5f8ed4]" tabindex="5" :disabled="form.processing">
                                 <LoaderCircle v-if="form.processing" class="h-4 w-4 animate-spin" />
                                 Log in
                             </Button>
@@ -93,7 +88,7 @@ const submit = () => {
 
                         <div class="text-center text-sm text-muted-foreground">
                             Don't have an account?
-                            <TextLink :href="route('register')" :tabindex="5">Sign up</TextLink>
+                            <TextLink :href="route('register')" :tabindex="5" class="text-[#102C57]"> Sign up </TextLink>
                         </div>
                     </form>
                 </AuthBase>
