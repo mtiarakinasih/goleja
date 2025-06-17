@@ -150,20 +150,19 @@ function triggerUpload() {
 
                 <!-- bagian status -->
                 <div v-else-if="activeTab === 'status'" class="space-y-4 text-sm">
+                    <!-- Terkirim -->
                     <div class="relative rounded bg-gray-100 p-4 shadow-sm">
-                        <p class="font-semibold">PT Botika Teknologi Indonesia</p>
+                        <p class="font-semibold text-[#102C57]">PT Botika Teknologi Indonesia</p>
                         <p>Posisi: Manajer</p>
                         <p class="mt-1 text-sm">
                             Status Pengajuan:
-                            <span class="rounded bg-blue-200 px-2 py-1 text-blue-800">Terkirim</span>
+                            <span class="rounded px-2 py-1 text-black" style="background: linear-gradient(to right, #d9d9d9, #bfdbfe)">
+                                Terkirim
+                            </span>
                         </p>
                         <button
                             @click="
-                                selectedStatus = {
-                                    company: 'PT Botika Teknologi Indonesia',
-                                    position: 'Manajer',
-                                    status: 'Terkirim',
-                                };
+                                selectedStatus = { company: 'PT Botika Teknologi Indonesia', position: 'Manajer', status: 'Terkirim' };
                                 showDetail = true;
                             "
                             class="absolute top-4 right-4 text-blue-800 hover:text-blue-600"
@@ -172,20 +171,19 @@ function triggerUpload() {
                         </button>
                     </div>
 
+                    <!-- Sedang dicek -->
                     <div class="relative rounded bg-gray-100 p-4 shadow-sm">
-                        <p class="font-semibold">PT Aksa Digital Group</p>
+                        <p class="font-semibold text-[#102C57]">PT Aksa Digital Group</p>
                         <p>Posisi: Administrator</p>
                         <p class="mt-1 text-sm">
                             Status Pengajuan:
-                            <span class="rounded bg-yellow-200 px-2 py-1 text-yellow-800">Sedang dicek</span>
+                            <span class="rounded px-2 py-1 text-black" style="background: linear-gradient(to right, #d9d9d9, #fef08a)">
+                                Sedang dicek
+                            </span>
                         </p>
                         <button
                             @click="
-                                selectedStatus = {
-                                    company: 'PT Aksa Digital Group',
-                                    position: 'Administrator',
-                                    status: 'Sedang dicek',
-                                };
+                                selectedStatus = { company: 'PT Aksa Digital Group', position: 'Administrator', status: 'Sedang dicek' };
                                 showDetail = true;
                             "
                             class="absolute top-4 right-4 text-blue-800 hover:text-blue-600"
@@ -194,21 +192,20 @@ function triggerUpload() {
                         </button>
                     </div>
 
+                    <!-- Dipanggil Interview -->
                     <div class="relative rounded bg-gray-100 p-4 shadow-sm">
-                        <p class="font-semibold">PT Aksa Digital Group</p>
+                        <p class="font-semibold text-[#102C57]">PT Aksa Digital Group</p>
                         <p>Posisi: Administrator</p>
                         <p class="mt-1 text-sm">
                             Status Pengajuan:
-                            <span class="rounded bg-green-200 px-2 py-1 text-green-800">Dipanggil Interview</span>
+                            <span class="rounded px-2 py-1 text-black" style="background: linear-gradient(to right, #d9d9d9, #bbf7d0)">
+                                Dipanggil Interview
+                            </span>
                         </p>
                         <p class="mt-2 text-sm text-gray-500">[Link Meeting/lampiran dokumen undangan interview]</p>
                         <button
                             @click="
-                                selectedStatus = {
-                                    company: 'PT Aksa Digital Group',
-                                    position: 'Administrator',
-                                    status: 'CV kamu diterima!',
-                                };
+                                selectedStatus = { company: 'PT Aksa Digital Group', position: 'Administrator', status: 'CV kamu diterima!' };
                                 showDetail = true;
                             "
                             class="absolute top-4 right-4 text-blue-800 hover:text-blue-600"
@@ -220,20 +217,27 @@ function triggerUpload() {
 
                 <!-- bagian history -->
                 <div v-else-if="activeTab === 'riwayat'" class="space-y-4 text-sm">
+                    <!-- Riwayat 1 -->
                     <div class="rounded bg-gray-100 p-4 shadow-sm">
-                        <p class="font-semibold">PT Botika Teknologi Indonesia</p>
+                        <p class="font-semibold text-[#102C57]">PT Botika Teknologi Indonesia</p>
                         <p>Posisi: Manajer</p>
                         <p class="mt-1 text-sm">
                             Status Pengajuan:
-                            <span class="rounded bg-green-200 px-2 py-1 text-green-800">Terkirim</span>
+                            <span class="rounded px-2 py-1 text-black" style="background: linear-gradient(to right, #d9d9d9, #bbf7d0)">
+                                Terkirim
+                            </span>
                         </p>
                     </div>
+
+                    <!-- Riwayat 2 -->
                     <div class="rounded bg-gray-100 p-4 shadow-sm">
-                        <p class="font-semibold">PT Aksa Digital Group</p>
+                        <p class="font-semibold text-[#102C57]">PT Aksa Digital Group</p>
                         <p>Posisi: Administrator</p>
                         <p class="mt-1 text-sm">
                             Status Pengajuan:
-                            <span class="rounded bg-red-200 px-2 py-1 text-red-800">Ditolak</span>
+                            <span class="rounded px-2 py-1 text-black" style="background: linear-gradient(to right, #d9d9d9, #fecaca)">
+                                Ditolak
+                            </span>
                         </p>
                         <p class="mt-2 text-sm text-gray-500">Catatan dari HR jika ada</p>
                     </div>
