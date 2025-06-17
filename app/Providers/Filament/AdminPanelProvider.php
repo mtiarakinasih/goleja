@@ -17,6 +17,12 @@ use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
+use App\Filament\Widgets\LowonganPerStatusChart;
+use App\Filament\Widgets\LowonganPerKategoriBidangChart;
+use App\Filament\Widgets\LowonganPerKategoriWaktuChart;
+use App\Filament\Widgets\TotalPerusahaanOverview;
+use App\Filament\Widgets\TotalPelamarOverview;
+
 
 class AdminPanelProvider extends PanelProvider
 {
@@ -37,8 +43,12 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
             ->widgets([
-                Widgets\AccountWidget::class,
-                Widgets\FilamentInfoWidget::class,
+                    TotalPelamarOverview::class,
+                    TotalPerusahaanOverview::class,
+
+                    LowonganPerKategoriBidangChart::class,
+                    LowonganPerKategoriWaktuChart::class,
+                    LowonganPerStatusChart::class,
             ])
             ->middleware([
                 EncryptCookies::class,

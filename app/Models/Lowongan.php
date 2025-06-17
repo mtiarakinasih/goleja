@@ -11,6 +11,7 @@ class Lowongan extends Model
 
     protected $fillable = [
         'perusahaan_id',
+        'nama',
         'alamat',
         'kategori_bidang_id',
         'kategori_waktu_id',
