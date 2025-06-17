@@ -31,13 +31,16 @@ class RegisteredUserController extends Controller
             'role' => 'required|in:perusahaan,pelamar',
         ]);
 
+        $status = ($request->role === 'perusahaan') ? 'pending' : 'approved';
+
         // Simpan user ke tabel users
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
             'role' => $request->role,
-            'status' => 'pending',
+            'status' => $status,
+
         ]);
 
         // Simpan ke tabel pelamars atau perusahaans
@@ -56,8 +59,8 @@ class RegisteredUserController extends Controller
         }
 
         event(new Registered($user));
-        Auth::login($user);
 
-        return to_route('dashboard');
+
+        return to_route('login')->with('success', 'Registrasi berhasil! Silakan login setelah akun disetujui.');
     }
 }

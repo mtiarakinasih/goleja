@@ -7,6 +7,8 @@ use Illuminate\Support\ServiceProvider;
 use Laravel\Fortify\Fortify;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\ValidationException;
+
 
 class FortifyServiceProvider extends ServiceProvider
 {
@@ -17,39 +19,31 @@ class FortifyServiceProvider extends ServiceProvider
         Fortify::registerView(fn () => view('auth.register'));
         Fortify::loginView(fn () => view('auth.login'));
 
-        Fortify::createUsersUsing(function (array $input) {
-            Validator::make($input, [
-                'name' => ['required', 'string', 'max:255'],
-                'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-                'password' => ['required', 'string', 'min:8', 'confirmed'],
-                'role' => ['required', 'in:perusahaan,pelamar'], // kita tambahkan pilihan role
-            ])->validate();
 
-            // Insert ke users
-            $user = User::create([
-                'name' => $input['name'],
-                'email' => $input['email'],
-                'password' => Hash::make($input['password']),
-                'role' => $input['role'],
-                'status' => 'pending',
-            ]);
+        Fortify::authenticateUsing(function ($request) {
+            \Log::info('Fortify login trigger: '.$request->email);
 
-            // Insert ke perusahaan atau pelamar
-            if ($input['role'] == 'perusahaan') {
-                \App\Models\Perusahaan::create([
-                    'user_id' => $user->id,
-                    'nama_perusahaan' => $input['name'],
-                    'email' => $input['email'],
-                ]);
-            } else {
-                \App\Models\Pelamar::create([
-                    'user_id' => $user->id,
-                    'nama_lengkap' => $input['name'],
-                    'email' => $input['email'],
-                ]);
+            $user = User::where('email', $request->email)->first();
+
+            if ($user && Hash::check($request->password, $user->password)) {
+                if ($user->status === 'pending') {
+                    \Log::warning('Login blocked: pending user '.$user->email);
+                    throw ValidationException::withMessages([
+                        'email' => 'Akun Anda sedang dalam proses verifikasi oleh admin.',
+                    ]);
+                }
+
+                if ($user->status === 'rejected') {
+                    \Log::warning('Login blocked: rejected user '.$user->email);
+                    throw ValidationException::withMessages([
+                        'email' => 'Akun Anda telah ditolak oleh admin.',
+                    ]);
+                }
+
+                return $user;
             }
 
-            return $user;
-        });
+            return null;
+        });     
     }
 }
