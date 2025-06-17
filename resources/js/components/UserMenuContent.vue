@@ -34,7 +34,7 @@ defineProps<Props>();
         </DropdownMenuItem>
 
         <DropdownMenuItem :as-child="true" class="px-2 py-1.5">
-            <Link class="flex w-full items-center gap-2" :href="route('kelola-artikel')" as="button">
+            <Link class="flex w-full items-center gap-2" :href="route('artikel.index')" as="button">
                 <Edit class="h-4 w-4" />
                 Kelola Artikel
             </Link>

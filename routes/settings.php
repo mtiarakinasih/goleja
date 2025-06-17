@@ -24,6 +24,20 @@ Route::middleware('auth')->group(function () {
     })->name('rating');
 
     Route::get('settings/artikel', function () {
-        return Inertia::render('settings/KelolaArtikel');
-    })->name('kelola-artikel');
+        return Inertia::render('settings/artikel/Index');
+    })->name('artikel.index');
+    
+    Route::get('settings/artikel/create', function () {
+        return Inertia::render('settings/artikel/Create');
+    })->name('artikel.create');
+    
+    Route::get('settings/artikel/edit', function () {
+        return Inertia::render('settings/artikel/Edit');
+    })->name('artikel.edit');
+    
+    Route::get('settings/artikel/show', function () {
+        return Inertia::render('settings/artikel/Show');
+    })->name('artikel.show');
+
+
 });
