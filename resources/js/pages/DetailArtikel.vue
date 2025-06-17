@@ -2,6 +2,8 @@
 import AppLayout from '@/layouts/AppLayout.vue';
 import { Head } from '@inertiajs/vue3';
 import { Search } from 'lucide-vue-next';
+import type { BreadcrumbItem } from '@/types';
+
 
 const breadcrumbs: BreadcrumbItem[] = [
     {

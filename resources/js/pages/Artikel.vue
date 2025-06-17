@@ -16,6 +16,14 @@ const breadcrumbs: BreadcrumbItem[] = [
     <Head title="Artikel" />
 
     <AppLayout>
+        <nav class="mb-4 text-sm text-gray-500">
+        <ul class="flex space-x-2">
+            <li v-for="(item, index) in breadcrumbs" :key="index" class="flex items-center">
+                <a :href="item.href" class="hover:underline text-gray-700">{{ item.title }}</a>
+                <span v-if="index < breadcrumbs.length - 1" class="mx-2">/</span>
+            </li>
+        </ul>
+    </nav>
         <div class="mt-6 flex flex-col gap-6 p-6 md:flex-row">
             <div class="flex-1 space-y-6 rounded-xl border bg-white p-6 shadow-sm">
                 <div class="flex flex-col items-start gap-4 border-b pb-6 md:flex-row">
