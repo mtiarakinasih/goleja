@@ -58,9 +58,12 @@ class RegisteredUserController extends Controller
             ]);
         }
 
-        event(new Registered($user));
-
+        if ($status === 'approved') {
+            Auth::login($user);
+            return redirect()->route('dashboard');
+        }
 
         return to_route('login')->with('success', 'Registrasi berhasil! Silakan login setelah akun disetujui.');
-    }
+
+            }
 }
