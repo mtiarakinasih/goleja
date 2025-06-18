@@ -5,7 +5,7 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="js">
 defineProps({
   category: Object,
 })

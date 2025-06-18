@@ -13,8 +13,8 @@ class UserResource extends Resource
 {
     protected static ?string $model = User::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-user';
-    protected static ?string $navigationLabel = 'Verifikasi Pengguna';
+    protected static ?string $navigationIcon = 'heroicon-o-home';
+    protected static ?string $navigationLabel = 'Verifikasi User Perusahaan';
 
     public static function form(Form $form): Form
     {
@@ -67,12 +67,12 @@ class UserResource extends Resource
 
     public static function getLabel(): string
     {
-        return 'Verifikasi Pengguna';
+        return 'Verifikasi User Perusahaan';
     }
 
     public static function getPluralLabel(): string
     {
-        return 'Verifikasi Pengguna';
+        return 'Verifikasi  User Perusahaan';
     }
 
     public static function getNavigationGroup(): ?string
