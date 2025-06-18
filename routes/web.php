@@ -40,6 +40,14 @@ Route::middleware(['auth', 'check.status'])->group(function () {
     Route::get('/lamar-pekerjaan', function () {
         return Inertia::render('LamarKerja');
     })->name('lamar-pekerjaan');
+
+    Route::get('/detail-perusahaan', function () {
+        return Inertia::render('DetailPerusahaan');
+    })->name('detail-perusahaan');
+
+    Route::get('/lowongan-perusahaan', function () {
+        return Inertia::render('LowonganPerusahaan');
+    })->name('lowongan-perusahaan');
 });
 
 // ✅ Pastikan semua route tambahan tetap di-include
