@@ -5,8 +5,8 @@
   </div>
 </template>
 
-<script setup lang="js">
-defineProps({
-  category: Object,
-})
+<script setup lang="ts">
+defineProps<{
+  category: Record<string, any>
+}>()
 </script>

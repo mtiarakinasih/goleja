@@ -37,26 +37,33 @@
   </div>
 </template>
 
-<script setup lang="js">
-
+<script setup lang="ts">
 import { ref } from 'vue'
 
-defineProps({
-  filter: Object,
-})
-const emit = defineEmits(['select', 'remove'])
+const props = defineProps<{
+  filter: {
+    name: string
+    label: string
+    options: string[]
+  }
+}>()
 
-const selected = ref(null)
+const emit = defineEmits<{
+  (e: 'select', payload: { name: string; value: string }): void
+  (e: 'remove', name: string): void
+}>()
+
+const selected = ref<string | null>(null)
 const isOpen = ref(false)
 
-function selectOption(option) {
+function selectOption(option: string) {
   selected.value = option
   isOpen.value = false
-  emit('select', { name: filter.name, value: option })
+  emit('select', { name: props.filter.name, value: option })
 }
 
 function removeFilter() {
   selected.value = null
-  emit('remove', filter.name)
+  emit('remove', props.filter.name)
 }
 </script>
