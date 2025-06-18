@@ -138,21 +138,22 @@ const breadcrumbs: BreadcrumbItem[] = [
 
                             <!-- Job Details -->
                             <div class="flex flex-col gap-2 mt-2 text-sm">
-                                <div class="flex items-center gap-2">
-                                <img src="/icons/technology.svg" class="w-4 h-4" alt="Icon">
+                            <div class="flex items-center gap-2">
+                                <i class="fas fa-microchip text-gray-600 w-4 text-xs"></i>
                                 <span>Technology</span>
-                                </div>
-                                <div class="flex items-center gap-2">
-                                <img src="/icons/clock.svg" class="w-4 h-4" alt="Icon">
-                                <span>Part-time</span>
-                                </div>
                             </div>
+                            <div class="flex items-center gap-2">
+                                <i class="fas fa-clock text-gray-600 w-4 text-xs"></i>
+                                <span>Part-time</span>
+                            </div>
+                            </div>
+
 
                             <!-- Footer: Rating & Button -->
                             <div class="flex items-center justify-between mt-2">
                                 <div class="flex items-center gap-1 text-sm">
                                 <span class="font-medium">4.5</span>
-                                <img src="/icons/star.svg" alt="Star Icon" class="w-4 h-4" />
+                                <i class="fa-solid fa-star"></i>
                                 </div>
                                 <button class="bg-[#102C57] hover:bg-[#0d234b] text-white text-sm px-4 py-2 rounded-md">
                                 See Details

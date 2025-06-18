@@ -45,24 +45,22 @@ const breadcrumbs: BreadcrumbItem[] = [
                         </div>
 
                         <div class="flex gap-4">
-                            <!-- Wrapper untuk satu metrik -->
                             <div class="flex flex-col items-center">
                             <!-- Lingkaran dengan persentase di tengah -->
                             <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center">
                                 <span class="text-lg font-bold text-blue-600">90%</span>
                             </div>
-                            <!-- Caption di bawah, juga center -->
+                            <!-- Caption di bawah -->
                             <p class="text-xs text-gray-600 mt-2 text-center">
                                 Rate salary as High or Average
                             </p>
                             </div>
-                            <!-- Wrapper untuk satu metrik -->
                             <div class="flex flex-col items-center">
                             <!-- Lingkaran dengan persentase di tengah -->
                             <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center">
                                 <span class="text-lg font-bold text-blue-600">90%</span>
                             </div>
-                            <!-- Caption di bawah, juga center -->
+                            <!-- Caption di bawah -->
                             <p class="text-xs text-gray-600 mt-2 text-center">
                                 Would recommend this company to others
                             </p>
@@ -105,8 +103,13 @@ const breadcrumbs: BreadcrumbItem[] = [
                     <p class="text-xs text-gray-500 text-right">01/01/2025</p>
                     </div>
 
-                    <!-- Tambah sebanyak 6 total -->
-                    <!-- ... -->
+                    <div class="bg-[#f5faff] rounded-xl shadow-md p-4 flex flex-col items-center justify-center w-full max-w-[300px] h-[180px]">
+                        <div class="bg-[#102C57] text-white w-10 h-10 flex items-center justify-center rounded-full text-xl">
+                            +
+                        </div>
+                        <p class="text-[#102C57] mt-2 font-medium text-sm">Tambahkan Review</p>
+                    </div>
+
                 </div>
 
                 <!-- Pagination -->
