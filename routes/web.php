@@ -28,6 +28,14 @@ Route::middleware(['auth', 'check.status'])->group(function () {
     Route::get('/artikel/detail', function () {
         return Inertia::render('DetailArtikel');
     })->name('detail-artikel');
+
+    Route::get('/detail-lowongan', function () {
+        return Inertia::render('DetailLowongan');
+    })->name('detail-lowongan');
+
+    Route::get('/rating-perusahaan', function () {
+        return Inertia::render('ReviewPerusahaan');
+    })->name('rating-perusahaan');
 });
 
 // ✅ Pastikan semua route tambahan tetap di-include
