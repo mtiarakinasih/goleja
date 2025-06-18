@@ -36,6 +36,10 @@ Route::middleware(['auth', 'check.status'])->group(function () {
     Route::get('/rating-perusahaan', function () {
         return Inertia::render('ReviewPerusahaan');
     })->name('rating-perusahaan');
+
+    Route::get('/lamar-pekerjaan', function () {
+        return Inertia::render('LamarKerja');
+    })->name('lamar-pekerjaan');
 });
 
 // ✅ Pastikan semua route tambahan tetap di-include
